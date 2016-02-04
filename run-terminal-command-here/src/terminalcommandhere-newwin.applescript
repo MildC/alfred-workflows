@@ -20,24 +20,7 @@ on run theQuery
 	
 	tell application "Terminal"
 		activate
-		set terminalWindow to ""
-		
-		if (count of windows) is greater than 0 then
-			repeat with theWindow in windows
-				if theWindow is not busy then
-					set terminalWindow to theWindow
-					set frontmost of terminalWindow to true
-					exit repeat
-				end if
-			end repeat
-		end if
-		
-		if terminalWindow is not "" then
-			do script theCommand in terminalWindow
-		else
-			do script theCommand
-		end if
-		
+		do script theCommand
 	end tell
 	
 end run
